@@ -3,6 +3,8 @@ FROM golang:1.19.4-buster AS build
 
 WORKDIR /app
 
+#RUN go install github.com/cosmtrek/air@latest
+
 COPY go.mod ./
 COPY go.sum ./
 RUN go mod download
@@ -10,6 +12,8 @@ RUN go mod download
 COPY *.go ./
 
 COPY .  .
+
+RUN go mod tidy
 
 RUN go build -o /try
 

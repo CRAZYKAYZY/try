@@ -8,19 +8,19 @@ services:
       context: .
     env_file:
       - .env
-    #command: air ./try/main.go -b 0.0.0.0
+    command: air ./try/main.go -b 0.0.0.0
     container_name: try
     hostname: try
     networks:
       - mynet
     ports:
       - 80:8080
-    environment:
-      - PGUSER=${PGUSER}
-      - PGPASSWORD=${PGPASSWORD}
-      - PGHOST=${PGHOST}
-      - PGPORT=${PGPORT}
-      - PGDATABASE=${PGDATABASE}
+    # environment:
+    #   - PGUSER=${PGUSER}
+    #   - PGPASSWORD=${PGPASSWORD}
+    #   - PGHOST=${PGHOST}
+    #   - PGPORT=${PGPORT}
+    #   - PGDATABASE=${PGDATABASE}
     deploy:
       restart_policy:
         condition: on-failure

@@ -45,7 +45,7 @@ func main() {
 		httpPort = "8080"
 	}
 
-	e.Logger.Fatal(e.Start(":" + httpPort))
+	e.Logger.Fatal(e.Start(fmt.Sprintf(":%v", httpPort)))
 }
 
 type Message struct {
